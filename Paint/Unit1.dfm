@@ -2,8 +2,8 @@ object Form1: TForm1
   Left = 0
   Top = 0
   Caption = 'Paint'
-  ClientHeight = 427
-  ClientWidth = 740
+  ClientHeight = 426
+  ClientWidth = 648
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -15,12 +15,27 @@ object Form1: TForm1
   PixelsPerInch = 96
   TextHeight = 13
   object ImageCanvas: TImage
-    Left = 32
-    Top = 24
+    Left = 0
+    Top = 0
     Width = 577
     Height = 345
     OnMouseDown = ImageCanvasMouseDown
     OnMouseMove = ImageCanvasMouseMove
     OnMouseUp = ImageCanvasMouseUp
+  end
+  object SpinEditWidth: TSpinEdit
+    Left = 527
+    Top = 384
+    Width = 121
+    Height = 22
+    AutoSelect = False
+    AutoSize = False
+    Ctl3D = True
+    MaxValue = 0
+    MinValue = 0
+    ParentCtl3D = False
+    TabOrder = 0
+    Value = 1
+    OnChange = SpinEditWidthChange
   end
 end

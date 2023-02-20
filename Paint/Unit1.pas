@@ -4,11 +4,13 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.Menus;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.Menus, Vcl.StdCtrls,
+  Vcl.Samples.Spin, Vcl.ToolWin, Vcl.ActnMan, Vcl.ActnCtrls, Vcl.ActnMenus;
 
 type
   TForm1 = class(TForm)
     ImageCanvas: TImage;
+    SpinEditWidth: TSpinEdit;
     procedure FormCreate(Sender: TObject);
     procedure ImageCanvasMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
@@ -16,6 +18,7 @@ type
       Y: Integer);
     procedure ImageCanvasMouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
+    procedure SpinEditWidthChange(Sender: TObject);
   private
     { Private declarations }
   public
@@ -32,20 +35,25 @@ implementation
 
 var
   pen: bool;
+  widthPaint: Integer;
 
   
+
+
 procedure TForm1.FormCreate(Sender: TObject);
 begin
   pen:= false;
-  ImageCanvas.Canvas.Pen.Width:= 1;
+  ImageCanvas.Canvas.Pen.Width:= widthPaint;
+
 end;
 
 
 procedure TForm1.ImageCanvasMouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
+  ImageCanvas.Canvas.Pen.Width:= widthPaint;
   pen:= true;
-  Canvas.MoveTo(X + 32, Y + 24);
+  ImageCanvas.Canvas.MoveTo(X, Y);
 end;
 
 
@@ -54,7 +62,7 @@ procedure TForm1.ImageCanvasMouseMove(Sender: TObject; Shift: TShiftState; X,
 begin
   if pen then
   begin
-    Canvas.LineTo(X + 32, Y + 24);
+    ImageCanvas.Canvas.LineTo(X, Y);
   end;
 end;
 
@@ -63,6 +71,12 @@ procedure TForm1.ImageCanvasMouseUp(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
   pen:= false;
+end;
+
+
+procedure TForm1.SpinEditWidthChange(Sender: TObject);
+begin
+  widthPaint:= StrToInt(SpinEditWidth.Text);
 end;
 
 end.
