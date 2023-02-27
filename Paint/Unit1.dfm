@@ -10,13 +10,14 @@ object Form1: TForm1
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
+  Menu = MainMenu1
   OldCreateOrder = False
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object ImageCanvas: TImage
-    Left = 0
-    Top = 0
+    Left = 16
+    Top = 33
     Width = 577
     Height = 345
     OnMouseDown = ImageCanvasMouseDown
@@ -24,7 +25,7 @@ object Form1: TForm1
     OnMouseUp = ImageCanvasMouseUp
   end
   object SpinEditWidth: TSpinEdit
-    Left = 527
+    Left = 472
     Top = 384
     Width = 121
     Height = 22
@@ -37,5 +38,44 @@ object Form1: TForm1
     TabOrder = 0
     Value = 1
     OnChange = SpinEditWidthChange
+  end
+  object MainMenu1: TMainMenu
+    object FileMenuItem: TMenuItem
+      Caption = 'File'
+      object FileOpenMenuItem: TMenuItem
+        Caption = 'Open'
+      end
+      object FileSaveMenuItem: TMenuItem
+        Caption = 'Save'
+      end
+    end
+    object EditMenuItem: TMenuItem
+      Caption = 'Edit'
+      object EditColorMenuItem: TMenuItem
+        Caption = 'Change color'
+        OnClick = EditColorMenuItemClick
+      end
+    end
+  end
+  object ColorDialog: TColorDialog
+    CustomColors.Strings = (
+      'ColorA=FFFFFFFF'
+      'ColorB=FFFFFFFF'
+      'ColorC=FFFFFFFF'
+      'ColorD=FFFFFFFF'
+      'ColorE=FFFFFFFF'
+      'ColorF=FFFFFFFF'
+      'ColorG=FFFFFFFF'
+      'ColorH=FFFFFFFF'
+      'ColorI=FFFFFFFF'
+      'ColorJ=FFFFFFFF'
+      'ColorK=FFFFFFFF'
+      'ColorL=FFFFFFFF'
+      'ColorM=FFFFFFFF'
+      'ColorN=FFFFFFFF'
+      'ColorO=FFFFFFFF'
+      'ColorP=FFFFFFFF')
+    Options = [cdPreventFullOpen]
+    Left = 32
   end
 end

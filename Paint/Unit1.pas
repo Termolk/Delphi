@@ -11,6 +11,13 @@ type
   TForm1 = class(TForm)
     ImageCanvas: TImage;
     SpinEditWidth: TSpinEdit;
+    MainMenu1: TMainMenu;
+    FileMenuItem: TMenuItem;
+    EditMenuItem: TMenuItem;
+    EditColorMenuItem: TMenuItem;
+    FileOpenMenuItem: TMenuItem;
+    FileSaveMenuItem: TMenuItem;
+    ColorDialog: TColorDialog;
     procedure FormCreate(Sender: TObject);
     procedure ImageCanvasMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
@@ -19,6 +26,7 @@ type
     procedure ImageCanvasMouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure SpinEditWidthChange(Sender: TObject);
+    procedure EditColorMenuItemClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -35,23 +43,22 @@ implementation
 
 var
   pen: bool;
-  widthPaint: Integer;
-
-  
+  widthPen: Integer;
+  colorPen: TColor;
 
 
 procedure TForm1.FormCreate(Sender: TObject);
 begin
   pen:= false;
-  ImageCanvas.Canvas.Pen.Width:= widthPaint;
-
+  ImageCanvas.Canvas.Pen.Width:= widthPen;
 end;
 
 
 procedure TForm1.ImageCanvasMouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
-  ImageCanvas.Canvas.Pen.Width:= widthPaint;
+  ImageCanvas.Canvas.Pen.Width:= widthPen;
+  ImageCanvas.Canvas.Pen.Color:= colorPen;
   pen:= true;
   ImageCanvas.Canvas.MoveTo(X, Y);
 end;
@@ -76,7 +83,18 @@ end;
 
 procedure TForm1.SpinEditWidthChange(Sender: TObject);
 begin
-  widthPaint:= StrToInt(SpinEditWidth.Text);
+  widthPen:= StrToInt(SpinEditWidth.Text);
 end;
+
+
+
+
+
+procedure TForm1.EditColorMenuItemClick(Sender: TObject);
+begin
+  ColorDialog.Execute;
+  colorPen:= ColorDialog.Color;
+end;
+
 
 end.
