@@ -40,13 +40,20 @@ object Form1: TForm1
     OnChange = SpinEditWidthChange
   end
   object MainMenu1: TMainMenu
+    Left = 8
     object FileMenuItem: TMenuItem
       Caption = 'File'
       object FileOpenMenuItem: TMenuItem
         Caption = 'Open'
+        OnClick = FileOpenMenuItemClick
       end
       object FileSaveMenuItem: TMenuItem
         Caption = 'Save'
+        OnClick = FileSaveMenuItemClick
+      end
+      object Exit1: TMenuItem
+        Caption = 'Exit'
+        OnClick = Exit1Click
       end
     end
     object EditMenuItem: TMenuItem
@@ -76,6 +83,12 @@ object Form1: TForm1
       'ColorO=FFFFFFFF'
       'ColorP=FFFFFFFF')
     Options = [cdPreventFullOpen]
-    Left = 32
+    Left = 40
+  end
+  object SavePictureDialog: TSavePictureDialog
+    Left = 104
+  end
+  object OpenPictureDialog: TOpenPictureDialog
+    Left = 72
   end
 end

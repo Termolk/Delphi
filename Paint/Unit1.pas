@@ -5,7 +5,8 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.Menus, Vcl.StdCtrls,
-  Vcl.Samples.Spin, Vcl.ToolWin, Vcl.ActnMan, Vcl.ActnCtrls, Vcl.ActnMenus;
+  Vcl.Samples.Spin, Vcl.ToolWin, Vcl.ActnMan, Vcl.ActnCtrls, Vcl.ActnMenus,
+  Vcl.ExtDlgs;
 
 type
   TForm1 = class(TForm)
@@ -18,6 +19,9 @@ type
     FileOpenMenuItem: TMenuItem;
     FileSaveMenuItem: TMenuItem;
     ColorDialog: TColorDialog;
+    Exit1: TMenuItem;
+    SavePictureDialog: TSavePictureDialog;
+    OpenPictureDialog: TOpenPictureDialog;
     procedure FormCreate(Sender: TObject);
     procedure ImageCanvasMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
@@ -27,6 +31,9 @@ type
       Shift: TShiftState; X, Y: Integer);
     procedure SpinEditWidthChange(Sender: TObject);
     procedure EditColorMenuItemClick(Sender: TObject);
+    procedure Exit1Click(Sender: TObject);
+    procedure FileSaveMenuItemClick(Sender: TObject);
+    procedure FileOpenMenuItemClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -45,6 +52,10 @@ var
   pen: bool;
   widthPen: Integer;
   colorPen: TColor;
+
+
+
+
 
 
 procedure TForm1.FormCreate(Sender: TObject);
@@ -87,12 +98,33 @@ begin
 end;
 
 
+procedure TForm1.FileOpenMenuItemClick(Sender: TObject);
+begin
+  if OpenPictureDialog.Execute() then
+  begin
+    ImageCanvas.Picture.LoadFromFile(OpenPictureDialog.FileName);
+  end;
+end;
 
+
+procedure TForm1.FileSaveMenuItemClick(Sender: TObject);
+begin
+  if SavePictureDialog.Execute() then
+  begin
+    ImageCanvas.Picture.SaveToFile(SavePictureDialog.FileName);
+  end;
+end;
+
+
+procedure TForm1.Exit1Click(Sender: TObject);
+begin
+  Close();
+end;
 
 
 procedure TForm1.EditColorMenuItemClick(Sender: TObject);
 begin
-  ColorDialog.Execute;
+  ColorDialog.Execute();
   colorPen:= ColorDialog.Color;
 end;
 
