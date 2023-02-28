@@ -100,7 +100,7 @@ end;
 
 procedure TForm1.FileOpenMenuItemClick(Sender: TObject);
 begin
-  if OpenPictureDialog.Execute() then
+  if OpenPictureDialog.Execute then
   begin
     ImageCanvas.Picture.LoadFromFile(OpenPictureDialog.FileName);
   end;

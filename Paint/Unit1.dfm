@@ -86,9 +86,11 @@ object Form1: TForm1
     Left = 40
   end
   object SavePictureDialog: TSavePictureDialog
+    Options = [ofCreatePrompt, ofEnableSizing]
     Left = 104
   end
   object OpenPictureDialog: TOpenPictureDialog
+    Options = [ofReadOnly, ofOverwritePrompt, ofHideReadOnly, ofEnableSizing]
     Left = 72
   end
 end
