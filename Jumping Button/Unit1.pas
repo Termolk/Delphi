@@ -36,4 +36,8 @@ begin
  Form1.Color:=random($FFFFFF);
 end;
 
+initialization
+randomize;
+
+
 end.

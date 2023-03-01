@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
-  <Transactions>
-    <Transaction>2023.02.28 11:11:57.014,=C:\Users\Sergei\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2023.02.28 11:12:35.292,C:\Учеба\Вуз\Delphi\Jumping Button\Unit1.pas=C:\Users\Sergei\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2023.02.28 11:12:35.292,C:\Учеба\Вуз\Delphi\Jumping Button\Unit1.dfm=C:\Users\Sergei\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
-    <Transaction>2023.02.28 11:12:43.696,C:\Учеба\Вуз\Delphi\Jumping Button\Project1.dproj=C:\Users\Sergei\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.292,C:\Users\Sergei\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Учеба\Вуз\Delphi\Jumping Button\Unit1.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.696,C:\Users\Sergei\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Учеба\Вуз\Delphi\Jumping Button\Project1.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.292,C:\Users\Sergei\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Учеба\Вуз\Delphi\Jumping Button\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.014,=C:\Users\Sergei\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
   </Transactions>
 </BorlandProject>
